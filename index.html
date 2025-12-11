@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>তারেক রহমানের বিশেষ বার্তা</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Nikosh', 'SolaimanLipi', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #3a7bd5, #00d2ff);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            text-align: center;
+            z-index: 1;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: #FFD700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            letter-spacing: 1px;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: #e6f7ff;
+            margin-bottom: 10px;
+        }
+        
+        .date {
+            font-size: 1.2rem;
+            color: #a3d5ff;
+            margin-bottom: 30px;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .image-container {
+            flex: 1;
+            min-width: 300px;
+            max-width: 450px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.5s;
+        }
+        
+        .image-container:hover {
+            transform: scale(1.03);
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .message {
+            flex: 1;
+            min-width: 300px;
+            text-align: right;
+            direction: rtl;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            border-right: 5px solid #FFD700;
+        }
+        
+        .message h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #FFD700;
+        }
+        
+        .message-text {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            text-align: justify;
+            direction: rtl;
+        }
+        
+        .quote {
+            font-style: italic;
+            color: #a3d5ff;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #FFD700;
+            text-align: center;
+            font-size: 1.3rem;
+        }
+        
+        .audio-controls {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .audio-controls button {
+            background: #FFD700;
+            color: #1a2a6c;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .audio-controls button:hover {
+            background: #ffed4e;
+            transform: scale(1.1);
+        }
+        
+        .music-info {
+            font-size: 1.1rem;
+            color: #a3d5ff;
+            margin-left: 10px;
+        }
+        
+        .music-status {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #a3d5ff;
+            padding: 5px 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: #a3d5ff;
+            font-size: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .message h2 {
+                font-size: 1.8rem;
+            }
+            
+            .message-text {
+                font-size: 1.2rem;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+        }
+        
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        .bangladesh-flag {
+            width: 40px;
+            height: 30px;
+            background: linear-gradient(to bottom, #006a4e 50%, #f42a41 50%);
+            position: relative;
+            display: inline-block;
+            margin: 0 10px;
+            border-radius: 2px;
+        }
+        
+        .bangladesh-flag::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background: red;
+            border-radius: 50%;
+        }
+        
+        .music-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .music-popup-content {
+            background: linear-gradient(135deg, #1a2a6c, #3a7bd5);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+            border: 3px solid #FFD700;
+        }
+        
+        .music-popup h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #FFD700;
+        }
+        
+        .music-popup p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .start-music-btn {
+            background: #FFD700;
+            color: #1a2a6c;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 0 auto;
+        }
+        
+        .start-music-btn:hover {
+            background: #ffed4e;
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- মিউজিক শুরু করার পপআপ -->
+    <div id="musicPopup" class="music-popup">
+        <div class="music-popup-content">
+            <h3><i class="fas fa-music"></i> স্বাগতম!</h3>
+            <p>এই ওয়েবসাইটে একটি অনুপ্রেরণাদায়ক সঙ্গীত রয়েছে যা স্বয়ংক্রিয়ভাবে বাজবে। অনুগ্রহ করে সঙ্গীত শুনতে নিচের বাটনে ক্লিক করুন।</p>
+            <button id="startMusicBtn" class="start-music-btn">
+                <i class="fas fa-play-circle"></i> সঙ্গীত শুরু করুন
+            </button>
+            <p class="music-status" style="margin-top: 20px;">বাটনে ক্লিক করলে সঙ্গীত বাজবে এবং এই পপআপটি বন্ধ হবে</p>
+        </div>
+    </div>
+    
+    <!-- ফ্লোটিং এলিমেন্ট -->
+    <div class="floating-element" style="width: 80px; height: 80px; top: 10%; left: 5%;"></div>
+    <div class="floating-element" style="width: 60px; height: 60px; top: 80%; left: 10%;"></div>
+    <div class="floating-element" style="width: 100px; height: 100px; top: 15%; right: 5%;"></div>
+    <div class="floating-element" style="width: 50px; height: 50px; top: 70%; right: 8%;"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1><span class="bangladesh-flag"></span> তারেক রহমানের বিশেষ বার্তা <span class="bangladesh-flag"></span></h1>
+            <div class="subtitle">বাংলাদেশের ভবিষ্যত গড়ার অঙ্গীকার</div>
+            <div class="date">শুভেচ্ছা ও সংহতি, আজ ১১ ই ডিসেম্বর </div>
+        </div>
+        
+        <div class="content">
+            <div class="image-container">
+                <img src="tarek.png" alt="বাংলাদেশের প্রাকৃতিক সৌন্দর্য">
+            </div>
+            
+            <div class="message">
+                <h2>বিশেষ বার্তা</h2>
+                <div class="message-text">
+                    <p>প্রিয় দেশবাসী,</p>
+                    <p>বাংলাদেশ আমাদের প্রাণের দেশ, আমাদের অস্তিত্বের পরিচয়। এই দেশকে এগিয়ে নিয়ে যাওয়ার জন্য আমাদের সকলকে একসাথে কাজ করতে হবে। আমাদের ঐক্যই আমাদের শক্তি, আমাদের সংহতিই আমাদের অগ্রগতির চাবিকাঠি।</p>
+                    <p>আমাদের লক্ষ্য হওয়া উচিত একটি সমৃদ্ধ, গণতান্ত্রিক ও ন্যায়ভিত্তিক বাংলাদেশ গড়ে তোলা, যেখানে প্রতিটি নাগরিকের মৌলিক অধিকার সুরক্ষিত হবে এবং সকলের জন্য সমান সুযোগ নিশ্চিত হবে।</p>
+                    <p>আসুন আমরা সবাই মিলে একটি সুন্দর ভবিষ্যৎ গড়ি, যেখানে আমাদের পরবর্তী প্রজন্ম গর্বের সাথে বাঁচতে পারবে।</p>
+                </div>
+                
+                <div class="quote">
+                    "দেশপ্রেম মানে শুধু দেশকে ভালোবাসা নয়, দেশের মানুষের জন্য কাজ করা"
+                </div>
+            </div>
+        </div>
+        
+        <div class="audio-controls">
+            <button id="playBtn">
+                <i class="fas fa-play"></i>
+            </button>
+            <button id="pauseBtn">
+                <i class="fas fa-pause"></i>
+            </button>
+            <button id="stopBtn">
+                <i class="fas fa-stop"></i>
+            </button>
+            <div class="music-info">
+                <i class="fas fa-music"></i> পটভূমি সংগীত
+            </div>
+        </div>
+        
+        <div class="music-status" id="audioStatus">সঙ্গীত প্রস্তুত</div>
+        
+        <div class="footer">
+            <p>এই ওয়েবসাইটটি তৈরি করা হয়েছে শুভেচ্ছা ও সংহতি প্রকাশের জন্য | সকল অধিকার সংরক্ষিত</p>
+            <p>Developer<a href="developer.html">Md Sazzad</a></p>
+        </div>
+    </div>
+
+    <!-- অডিও এলিমেন্ট -->
+    <audio id="backgroundMusic" loop>
+        <source src="tarek.mp3" type="audio/mpeg">
+        <source src="tarek.mp3" type="audio/ogg">
+        আপনার ব্রাউজার অডিও এলিমেন্ট সাপোর্ট করে না।
+    </audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('backgroundMusic');
+            const playBtn = document.getElementById('playBtn');
+            const pauseBtn = document.getElementById('pauseBtn');
+            const stopBtn = document.getElementById('stopBtn');
+            const startMusicBtn = document.getElementById('startMusicBtn');
+            const musicPopup = document.getElementById('musicPopup');
+            const audioStatus = document.getElementById('audioStatus');
+            
+            // অডিও সেটিংস - মিউট করা অবস্থায় শুরু করব
+            audio.muted = true; // প্রথমে মিউট করে রাখি
+            audio.volume = 0.5; // ভলিউম ৫০% সেট করি
+            
+            // পেইজ লোড হওয়ার পর কিছুক্ষণ পর অটোপ্লের চেষ্টা করব
+            setTimeout(() => {
+                // মিউট অবস্থায় অডিও প্লে করা
+                const playPromise = audio.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        // প্লে সফল হলে পপআপ দেখাব
+                        audio.muted = true; // এখনও মিউট থাকবে
+                        audioStatus.textContent = "সঙ্গীত প্রস্তুত, প্লে বাটনে ক্লিক করুন";
+                        console.log("অডিও সফলভাবে লোড হয়েছে");
+                    }).catch(error => {
+                        // প্লে ব্যর্থ হলে পপআপ দেখাব
+                        console.log("অটোপ্লে ব্যর্থ: ", error);
+                        audioStatus.textContent = "সঙ্গীত লোড হয়েছে, প্লে বাটনে ক্লিক করুন";
+                    });
+                }
+            }, 1000);
+            
+            // সঙ্গীত শুরু বাটন
+            startMusicBtn.addEventListener('click', function() {
+                // মিউট বন্ধ করি
+                audio.muted = false;
+                
+                // অডিও প্লে করি
+                audio.play().then(() => {
+                    console.log("সঙ্গীত শুরু হয়েছে");
+                    audioStatus.textContent = "সঙ্গীত বাজছে...";
+                    
+                    // পপআপ লুকাই
+                    musicPopup.classList.add('hidden');
+                    
+                    // প্লে বাটন আপডেট
+                    playBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+                    playBtn.title = "প্লে";
+                }).catch(error => {
+                    console.log("সঙ্গীত শুরু করা যায়নি: ", error);
+                    audioStatus.textContent = "সঙ্গীত শুরু করা যায়নি, পুনরায় চেষ্টা করুন";
+                });
+            });
+            
+            // প্লে বাটন
+            playBtn.addEventListener('click', function() {
+                audio.muted = false; // মিউট বন্ধ করি
+                audio.play().then(() => {
+                    audioStatus.textContent = "সঙ্গীত বাজছে...";
+                    playBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+                }).catch(error => {
+                    console.log("প্লে বাটনে ক্লিক করার পরও সঙ্গীত শুরু করা যায়নি: ", error);
+                    audioStatus.textContent = "সঙ্গীত শুরু করা যায়নি";
+                    
+                    // ইউজারকে পপআপ দেখানো
+                    musicPopup.classList.remove('hidden');
+                });
+            });
+            
+            // পজ বাটন
+            pauseBtn.addEventListener('click', function() {
+                audio.pause();
+                audioStatus.textContent = "সঙ্গীত থেমে আছে";
+            });
+            
+            // স্টপ বাটন
+            stopBtn.addEventListener('click', function() {
+                audio.pause();
+                audio.currentTime = 0;
+                audioStatus.textContent = "সঙ্গীত থেমে আছে";
+            });
+            
+            // অডিও এর অবস্থা পরিবর্তন হলে বাটন আপডেট
+            audio.addEventListener('play', function() {
+                playBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+                audioStatus.textContent = "সঙ্গীত বাজছে...";
+            });
+            
+            audio.addEventListener('pause', function() {
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                audioStatus.textContent = "সঙ্গীত থেমে আছে";
+            });
+            
+            // অডিও ত্রুটি হ্যান্ডলিং
+            audio.addEventListener('error', function() {
+                console.log("অডিও ত্রুটি ঘটেছে");
+                audioStatus.textContent = "সঙ্গীত লোড করতে সমস্যা হয়েছে";
+                musicPopup.classList.remove('hidden');
+            });
+            
+            // ফ্লোটিং এলিমেন্ট তৈরি
+            function createFloatingElements() {
+                const body = document.querySelector('body');
+                const colors = ['rgba(255, 215, 0, 0.2)', 'rgba(26, 42, 108, 0.2)', 'rgba(255, 255, 255, 0.1)'];
+                
+                for (let i = 0; i < 8; i++) {
+                    const element = document.createElement('div');
+                    element.classList.add('floating-element');
+                    
+                    const size = Math.random() * 60 + 20;
+                    element.style.width = `${size}px`;
+                    element.style.height = `${size}px`;
+                    element.style.top = `${Math.random() * 100}%`;
+                    element.style.left = `${Math.random() * 100}%`;
+                    element.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    element.style.animationDuration = `${Math.random() * 10 + 5}s`;
+                    element.style.animationDelay = `${Math.random() * 5}s`;
+                    
+                    body.appendChild(element);
+                }
+            }
+            
+            createFloatingElements();
+            
+            // ৫ সেকেন্ড পর পপআপ অটোমেটিক দেখানো
+            setTimeout(() => {
+                if (!audio.muted && audio.paused) {
+                    musicPopup.classList.remove('hidden');
+                }
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
